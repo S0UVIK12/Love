@@ -1,0 +1,118 @@
+/* General Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #FFD1DC; /* Light Pink Background */
+    overflow: hidden;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    padding: 20px;
+}
+
+/* Photo Gallery Styling */
+.photo-gallery {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: 80vh;
+}
+
+/* Photo Polaroid Effect */
+.photo {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    height: 70vh;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(var(--rotation));
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Ensure Images Fit Properly */
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Different Rotations for a Natural Look */
+.photo:nth-child(1) { --rotation: -5deg; }
+.photo:nth-child(2) { --rotation: 3deg; }
+.photo:nth-child(3) { --rotation: -4deg; }
+.photo:nth-child(4) { --rotation: 2deg; }
+
+/* Rose and Message Styling */
+.rose-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+/* Rose Image */
+.rose-container img {
+    width: 120vw;
+    max-width: 120vh;
+    object-fit: contain;
+    animation: bloom 1.5s ease-in-out forwards;
+}
+
+.message {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 240, 245, 0.8); /* Soft pinkish-white background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Dancing Script', cursive; /* Romantic handwriting font */
+    text-align: center;
+    color: #6a1b9a; /* Deep romantic purple */
+    font-size: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Adding a smooth fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bloom Animation for the Rose */
+@keyframes bloom {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .photo-gallery {
+        height: 70vh;
+    }
+
+    .photo {
+        height: 65vh;
+    }
+
+    .rose-container img {
+        width: 50%;
+    }
+}
