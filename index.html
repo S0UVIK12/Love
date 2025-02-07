@@ -13,10 +13,10 @@
 
 <body>
     <audio id="bg-music" autoplay loop>
-        <source src="your-music-file.mp3" type="audio/mpeg">
+        <source src="perfect.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
-    
+
     <div class="photo-gallery">
         <div class="photo"><img src="photo1.jpg" alt="Us"></div>
         <div class="photo"><img src="photo2.jpg" alt="Us"></div>
@@ -24,7 +24,7 @@
         <div class="photo"><img src="photo4.webp" alt="Us"></div>
         <div class="photo"><img src="photo5.jpg" alt="Us"></div>
     </div>
-
+    <button onclick="toggleMusic()">🎵 Play/Pause</button>
     <div class="rose-container">
         <img id="rose" src="rose.png" alt="A Rose for You">
         <div class="message">
@@ -48,7 +48,16 @@
 
 
     </div>
-
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById("bg-music");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 
